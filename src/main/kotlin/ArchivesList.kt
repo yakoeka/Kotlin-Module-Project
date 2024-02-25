@@ -1,12 +1,16 @@
 import java.util.Scanner
 
-class ArchivesList(private val updateScreenCallback: ScreenUpdateCallback): MenuHolder {
+class ArchivesList(private val updateScreenCallback: ScreenUpdateCallback) : MenuHolder {
     private val core = Core()
     override var menu: MutableList<MenuAction> = mutableListOf(
-        MenuAction("Создать архив") { createArchive()
-                                    true},
-        MenuAction("Выход") { exit()
-            false}
+        MenuAction("Создать архив") {
+            createArchive()
+            true
+        },
+        MenuAction("Выход") {
+            exit()
+            false
+        }
     )
 
     override fun selectAction(index: Int): Boolean {
@@ -26,8 +30,10 @@ class ArchivesList(private val updateScreenCallback: ScreenUpdateCallback): Menu
 
         if (newArchName.isNotEmpty()) {
             val newArchive = Archive(newArchName, this, updateScreenCallback)
-            menu.add(menu.size - 1, MenuAction(newArchName) {newArchive.openArchiveScreen()
-                true})
+            menu.add(menu.size - 1, MenuAction(newArchName) {
+                newArchive.openArchiveScreen()
+                true
+            })
             println("Архив $newArchName успешно создан")
         } else {
             println("Название архива не может быть пустым")

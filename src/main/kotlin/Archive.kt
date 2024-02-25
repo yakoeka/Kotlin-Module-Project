@@ -1,6 +1,10 @@
 import java.util.Scanner
 
-class Archive(val nameArch: String, private val archivesList: ArchivesList, private val updateScreenCallback: ScreenUpdateCallback) : MenuHolder {
+class Archive(
+    val nameArch: String,
+    private val archivesList: ArchivesList,
+    private val updateScreenCallback: ScreenUpdateCallback
+) : MenuHolder {
     private val core = Core()
     override var menu: MutableList<MenuAction> = mutableListOf(
         MenuAction("Создать заметку") {
