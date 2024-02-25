@@ -1,0 +1,1 @@
+data class MenuAction(val name: String, val action: () -> Boolean)
